@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import REACT_APP_BASE_URL from '../utils/endpoint'
 
 export default class Edit extends Component {
   constructor(props) {
@@ -17,12 +18,13 @@ export default class Edit extends Component {
   }
 
   componentDidMount() {
-      axios.get('http://localhost:4000/business/edit/'+this.props.match.params.id)
+      axios.get(REACT_APP_BASE_URL + '/products/'+this.props.match.params.id)
           .then(response => {
-              this.setState({ 
-                person_name: response.data.person_name, 
-                business_name: response.data.business_name,
-                business_gst_number: response.data.business_gst_number });
+               const bussiness = response.data[0];
+              this.setState({
+                person_name: bussiness.data.person_name, 
+                business_name: bussiness.data.business_name,
+                business_gst_number: bussiness.data.business_gst_number });
           })
           .catch(function (error) {
               console.log(error);
@@ -52,7 +54,7 @@ export default class Edit extends Component {
       business_name: this.state.business_name,
       business_gst_number: this.state.business_gst_number
     };
-    axios.post('http://localhost:4000/business/update/'+this.props.match.params.id, obj)
+    axios.put(REACT_APP_BASE_URL + '/products/'+this.props.match.params.id, obj)
         .then(res => console.log(res.data));
     
     this.props.history.push('/index');

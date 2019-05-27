@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import TableRow from './TableRow';
 
+import REACT_APP_BASE_URL from '../utils/endpoint'
+
 export default class Index extends Component {
 
   constructor(props) {
@@ -9,7 +11,7 @@ export default class Index extends Component {
       this.state = {business: []};
     }
     componentDidMount(){
-      axios.get('http://localhost:4000/business')
+      axios.get(REACT_APP_BASE_URL + '/products')
         .then(response => {
           this.setState({ business: response.data });
         })

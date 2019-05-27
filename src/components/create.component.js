@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import REACT_APP_BASE_URL from '../utils/endpoint'
+console.log("REACT_APP_BASE_URL:::",REACT_APP_BASE_URL);
 export default class Create extends Component {
   constructor(props) {
     super(props);
@@ -23,7 +25,7 @@ export default class Create extends Component {
   onChangeBusinessName(e) {
     this.setState({
       business_name: e.target.value
-    })  
+    })
   }
   onChangeGstNumber(e) {
     this.setState({
@@ -38,9 +40,8 @@ export default class Create extends Component {
       business_name: this.state.business_name,
       business_gst_number: this.state.business_gst_number
     };
-    axios.post('http://localhost:4000/business/add', obj)
+    axios.post(REACT_APP_BASE_URL + '/products', obj)
         .then(res => console.log(res.data));
-    
     this.setState({
       person_name: '',
       business_name: '',
