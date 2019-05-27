@@ -6,7 +6,7 @@ In the project directory, you can run:
 
 ### Development
 
-Create a `.env` file form `.env.sample`
+Create a `.env` file from `.env.sample`
 
 Start command:
 
