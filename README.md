@@ -27,6 +27,17 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run deploy`
+### Deployment
+For deployment on NOW, please install `now` cli.
+
+
+`npm install -g now`
+
+
+then run deployment command:
+
+
+`npm run deploy`
+
 
 Setup Now: https://zeit.co/now
